@@ -1,2 +1,3 @@
-# colorpicker-field_type
+# Colorpicker Field Type
+
 A colorpicker field type.
