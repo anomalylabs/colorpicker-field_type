@@ -2,16 +2,14 @@
     "name": "anomaly/colorpicker-field_type",
     "type": "streams-addon",
     "description": "A colorpicker field type.",
-    "version": "1.0.0",
-    "license": "MIT",
     "keywords": [
-        "streams-addon",
-        "colorpicker",
-        "field-type",
-        "pyrocms",
-        "laravel"
+        "streams field type",
+        "streams addon",
+        "field type"
     ],
     "homepage": "http://anomaly.is/",
+    "version": "1.0.0",
+    "license": "MIT",
     "authors": [
         {
             "name": "AnomalyLabs, Inc.",
@@ -27,11 +25,5 @@
         "psr-4": {
             "Anomaly\\ColorpickerFieldType\\": "src/"
         }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.0.x-dev"
-        }
-    },
-    "minimum-stability": "dev"
+    }
 }
