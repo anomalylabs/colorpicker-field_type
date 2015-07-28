@@ -10,6 +10,6 @@ Return the code only without the leading "#".
 // Twig Usage
 {{ entry.example.code }}
 
-// API Usage
+// API usage
 $entry->example->code();
 ```
