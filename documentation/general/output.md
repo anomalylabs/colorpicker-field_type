@@ -1,6 +1,6 @@
 # Output
 
-**Examples:**
+This field type returns the hexadecimal color code by default. 
 
 ### `code`
 
