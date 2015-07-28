@@ -7,7 +7,7 @@ protected $fields = [
     'example' => [
         'type'   => 'anomaly.field_type.colorpicker',
         'config' => [
-            'default_value' => '#333333'
+            'default_value' => null
         ]
     ]
 ];
@@ -15,4 +15,4 @@ protected $fields = [
 
 ### `default_value`
 
-The default color for the colorpicker.
+The default color for the colorpicker. Any valid hexadecimal color value can be used. No default value is specified by default.
