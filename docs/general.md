@@ -8,7 +8,7 @@
 <a name="introduction"></a>
 ## Introduction
 
-`anomaly.field_type.checkboxes`
+`anomaly.field_type.colorpicker`
 
 The colorpicker field type provides a color slider input that lets users choose any color.
 
