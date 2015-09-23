@@ -13,6 +13,7 @@
             class="form-control"
             name="{{ field_type.input_name }}"
             value="{{ field_type.value }}"
-            placeholder="{{ trans(field_type.placeholder) ?: '#ffffff' }}">
+            placeholder="{{ trans(field_type.placeholder) ?: '#ffffff' }}"
+            {{ field_type.required ? 'required' }}>
 
 </div>
