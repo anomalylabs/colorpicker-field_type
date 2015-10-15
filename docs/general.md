@@ -22,7 +22,7 @@ The colorpicker field type provides a color slider input that lets users choose 
         'example' => [
             'type'   => 'anomaly.field_type.colorpicker',
             'config' => [
-                'default_value' => '#f2364b`
+                'default_value' => '#f2364b'
             ]
         ]
     ];
