@@ -1,7 +1,7 @@
 $(function () {
 
     // Initialize colorpickers
-    $('.colorpicker-field_type .colorpicker-component').each(function () {
-        $(this).colorpicker();
+    $('input[data-provides="anomaly.field_type.colorpicker"]').each(function () {
+        $(this).closest('.colorpicker-component').colorpicker();
     });
 });

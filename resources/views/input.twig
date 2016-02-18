@@ -11,9 +11,12 @@
     <input
             type="text"
             class="form-control"
-            name="{{ field_type.input_name }}"
             value="{{ field_type.value }}"
+            name="{{ field_type.input_name }}"
             placeholder="{{ trans(field_type.placeholder) ?: '#ffffff' }}"
-            {{ field_type.required ? 'required' }}>
+            {{ html_attributes(field_type.attributes) }}
+            {{ field_type.required ? 'required' }}
+            {{ field_type.disabled ? 'disabled' }}
+            {{ field_type.readonly ? 'readonly' }}>
 
 </div>
