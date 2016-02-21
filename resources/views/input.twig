@@ -15,7 +15,6 @@
             name="{{ field_type.input_name }}"
             placeholder="{{ trans(field_type.placeholder) ?: '#ffffff' }}"
             {{ html_attributes(field_type.attributes) }}
-            {{ field_type.required ? 'required' }}
             {{ field_type.disabled ? 'disabled' }}
             {{ field_type.readonly ? 'readonly' }}>
 
