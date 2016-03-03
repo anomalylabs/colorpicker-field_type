@@ -1,6 +1,7 @@
 <?php
 
 return [
-    'name'        => 'Sélection de couleur',
-    'description' => 'Type de champs pour la sélection d\'une couleur.'
+    'title'       => 'Choix de couleur',
+    'name'        => 'Type de champs choix de couleur',
+    'description' => 'Type de champs permettant de choisir une couleur.'
 ];
