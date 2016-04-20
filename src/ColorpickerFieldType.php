@@ -1,5 +1,6 @@
 <?php namespace Anomaly\ColorpickerFieldType;
 
+use Anomaly\ColorpickerFieldType\Command\BuildColors;
 use Anomaly\Streams\Platform\Addon\FieldType\FieldType;
 
 /**
@@ -19,5 +20,49 @@ class ColorpickerFieldType extends FieldType
      * @var string
      */
     protected $inputView = 'anomaly.field_type.colorpicker::input';
+
+    /**
+     * The config.
+     *
+     * @var array
+     */
+    protected $config = [
+        'format'  => 'hex',
+        'handler' => 'Anomaly\ColorpickerFieldType\Handler\DefaultHandler@handle'
+    ];
+
+    /**
+     * The predefined colors.
+     *
+     * @var null|array
+     */
+    protected $colors = null;
+
+    /**
+     * Get the colors.
+     *
+     * @return array|null
+     */
+    public function getColors()
+    {
+        if ($this->colors === null) {
+            $this->dispatch(new BuildColors($this));
+        }
+
+        return $this->colors;
+    }
+
+    /**
+     * Set the colors.
+     *
+     * @param array $colors
+     * @return $this
+     */
+    public function setColors(array $colors)
+    {
+        $this->colors = $colors;
+
+        return $this;
+    }
 
 }

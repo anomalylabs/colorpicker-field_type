@@ -2,6 +2,14 @@ $(function () {
 
     // Initialize colorpickers
     $('input[data-provides="anomaly.field_type.colorpicker"]').each(function () {
-        $(this).closest('.colorpicker-component').colorpicker();
+
+        var input = $(this);
+
+        $(this).closest('.component').colorpicker({
+            align: 'left',
+            format: input.data('format'),
+            colorSelectors: input.data('colors')
+
+        });
     });
 });
