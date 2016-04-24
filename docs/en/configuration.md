@@ -6,7 +6,6 @@
 
 Below is the full configuration available with defaults.
 
-    {% code php %}
     protected $fields = [
         "example" => [
             "type"   => "anomaly.field_type.checkboxes",
@@ -17,7 +16,6 @@ Below is the full configuration available with defaults.
             ]
         ]
     ];
-    {% endcode %}
 
 <hr>
 
@@ -26,7 +24,7 @@ Below is the full configuration available with defaults.
 
 ### Default Value
 
-{{ code('php', '"default_type" => "#61259e"') }}
+    "default_type" => "#61259e"
 
 The `default_value` is a core option. This field type can accept a color in any supported format.
 
@@ -34,23 +32,17 @@ The `default_value` is a core option. This field type can accept a color in any 
 
 Defines the color format for the colorpicker input. Valid options are `hex`, `rgb`, and `rgba`.
 
-{% code php %}
-"format" => "rgba"
-{% endcode %}
+    "format" => "rgba"
 
 ### Predefined Colors
 
 Specifies predefined colors for the user to select *in addition* to the colorpicker UI.
 
-<pre>
-{% code php %}
-"colors" => [
-    "#61259e",
-    "#38b5e6",
-    "#24ce7b"
-]
-{% endcode %}
-</pre>
+    "colors" => [
+        "#61259e",
+        "#38b5e6",
+        "#24ce7b"
+    ]
 
 <hr>
 
@@ -63,7 +55,7 @@ Color handlers are responsible for setting the predefined colors on the field ty
 
 Custom handlers can be defined as a callable string.
 
-{{ code('php', '"handler" => "App/Example/MyColors@handle"') }}
+    "handler" => "App/Example/MyColors@handle"
 
 You can also define custom handlers as a closure.
 
@@ -71,7 +63,6 @@ You can also define custom handlers as a closure.
 <strong>Remember:</strong> Closures can not be stored in the database so you need to define closures in the form builder.
 </div>
 
-    {% code php %}
     protected $fields = [
         "example" => [
             "config" => [
@@ -87,21 +78,19 @@ You can also define custom handlers as a closure.
             ]
         ]
     ];
-    {% endcode %}
 
 ### Building Custom Handlers
 
 Building custom color handlers could not be easier. Simply create the class with the method you defined in the config option.
 
-{{ code('php', '"handler" => "App/Example/MyColors@handle"') }}
+    "handler" => "App/Example/MyColors@handle"
 
-The callable string is called via Laravel's service container. The {{ code('php', '$fieldType') }} is passed as an argument.
+The callable string is called via Laravel's service container. The `FieldType $fieldType` is passed as an argument.
 
 <div class="alert alert-primary">
 <strong>Note:</strong> Because handlers are called through Laravel's service container, you can automatically inject dependencies into the construct and method.
 </div>
 
-    {% code php %}
     class MyColors
     {
         public function handle(ColorpickerFieldType $fieldType)
@@ -115,4 +104,3 @@ The callable string is called via Laravel's service container. The {{ code('php'
             );
         }
     }
-    {% endcode %}
