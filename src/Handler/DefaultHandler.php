@@ -31,6 +31,10 @@ class DefaultHandler
             $colors = $this->dispatch(new ParseColors($colors));
         }
 
+        if (is_array($colors) && count(array_filter(array_keys($colors), 'is_string')) == 0) {
+            $colors = array_combine($colors, $colors);
+        }
+
         $fieldType->setColors((array)$colors);
     }
 }
