@@ -9,7 +9,6 @@ use Anomaly\Streams\Platform\Addon\FieldType\FieldType;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\ColorpickerFieldType
  */
 class ColorpickerFieldType extends FieldType
 {
@@ -28,7 +27,7 @@ class ColorpickerFieldType extends FieldType
      */
     protected $config = [
         'format'  => 'hex',
-        'handler' => 'Anomaly\ColorpickerFieldType\Handler\DefaultHandler@handle'
+        'handler' => 'Anomaly\ColorpickerFieldType\Handler\DefaultHandler@handle',
     ];
 
     /**
@@ -55,7 +54,7 @@ class ColorpickerFieldType extends FieldType
     /**
      * Set the colors.
      *
-     * @param array $colors
+     * @param  array $colors
      * @return $this
      */
     public function setColors(array $colors)

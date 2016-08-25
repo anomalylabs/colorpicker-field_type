@@ -1,6 +1,6 @@
 <?php namespace Anomaly\ColorpickerFieldType\Command;
 
-use Illuminate\Contracts\Bus\SelfHandling;
+
 
 /**
  * Class ParseColors
@@ -8,9 +8,8 @@ use Illuminate\Contracts\Bus\SelfHandling;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\ColorpickerFieldType\Command
  */
-class ParseColors implements SelfHandling
+class ParseColors
 {
 
     /**

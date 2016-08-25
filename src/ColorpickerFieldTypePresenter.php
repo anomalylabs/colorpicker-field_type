@@ -8,7 +8,6 @@ use Anomaly\Streams\Platform\Addon\FieldType\FieldTypePresenter;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\ColorpickerFieldType
  */
 class ColorpickerFieldTypePresenter extends FieldTypePresenter
 {
@@ -100,7 +99,7 @@ class ColorpickerFieldTypePresenter extends FieldTypePresenter
                 'red'   => $value[0],
                 'green' => $value[1],
                 'blue'  => $value[2],
-                'opacity' > array_get($value, 3, 1)
+                'opacity' > array_get($value, 3, 1),
             ];
         } else {
 
