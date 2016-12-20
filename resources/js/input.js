@@ -1,4 +1,4 @@
-$(function () {
+$(document).on('ajaxComplete ready', function () {
 
     // Initialize colorpickers
     $('input[data-provides="anomaly.field_type.colorpicker"]').each(function () {
