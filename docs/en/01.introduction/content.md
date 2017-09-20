@@ -1,0 +1,190 @@
+---
+title: Introduction
+---
+
+## Introduction[](#introduction)
+
+`anomaly.field_type.colorpicker`
+
+The colorpicker field type provides a fancy popup colorpicker input for choosing any color.
+
+
+### Configuration[](#introduction/configuration)
+
+Below is the full configuration available with defaults values:
+
+    "example" => [
+        "type"   => "anomaly.field_type.colorpicker",
+        "config" => [
+            "default_value" => null,
+            "format"        => "hex",
+            "colors"        => null,
+            "handler"       => "Anomaly\ColorpickerFieldType\Handler\DefaultHandler@handle",
+        ]
+    ]
+
+###### Configuration
+
+<table class="table table-bordered table-striped">
+
+<thead>
+
+<tr>
+
+<th>Key</th>
+
+<th>Example</th>
+
+<th>Description</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+
+default_value
+
+</td>
+
+<td>
+
+`&#35;61259e`
+
+</td>
+
+<td>
+
+The default value.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+format
+
+</td>
+
+<td>
+
+code
+
+</td>
+
+<td>
+
+The color format to display. Valid options are `hex`, `rgb`, and `rgba`.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+colors
+
+</td>
+
+<td>
+
+`["#61259e", "#38b5e6", "#24ce7b"]`
+
+</td>
+
+<td>
+
+Predefined color swatches.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+handler
+
+</td>
+
+<td>
+
+`Example\Test\MyColors@handle`
+
+</td>
+
+<td>
+
+The predefined color handler.
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+
+#### Color Handlers[](#introduction/configuration/color-handlers)
+
+Color handlers are responsible for setting the predefined colors on the field type. You can define your own handler to add your own logic to predefined color options.
+
+You can define custom handlers as a callable string where `@handle` will be assumed if no method is provided:
+
+    "handler" => "App/Example/MyColors@handle"
+
+Color handlers can also a handler with a closure:
+
+    "example" => [
+        "config" => [
+            "handler" => function (ColorpickerFieldType $fieldType) {
+                $fieldType->setOptions(
+                    [
+                        "#61259e",
+                        "#38b5e6",
+                        "#24ce7b"
+                    ]
+                );
+            }
+        ]
+    ]
+
+<div class="alert alert-info">**Remember:** Closures can not be stored in the database so your closure type handlers must be set / overridden from the form builder.</div>
+
+
+##### Writing Color Handlers[](#introduction/configuration/color-handlers/writing-color-handlers)
+
+Writing custom color handlers is easy. To begin create a class with the method you defined in the config option.
+
+    "handler" => "App/Example/MyColors@handle"
+
+The handler string is called via Laravel's service container. The `ColorpickerFieldType $fieldType` is passed as an argument.
+
+<div class="alert alert-primary">**Pro Tip:** Handlers are called through Laravel's service container so method and class injection is supported.</div>
+
+    <?php namespace App/Example;
+
+    class MyColors
+    {
+        public function handle(ColorpickerFieldType $fieldType)
+        {
+            $fieldType->setOptions(
+                [
+                    "#61259e",
+                    "#38b5e6",
+                    "#24ce7b"
+                ]
+            );
+        }
+    }
