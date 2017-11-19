@@ -7,7 +7,9 @@
         <input
                 type="color"
                 value="{{ field_type.value }}"
-                id="{{ field_type.input_name }}__color">
+                id="{{ field_type.input_name }}__picker"
+                {{ field_type.disabled ? 'disabled' }}
+                {{ field_type.readonly ? 'readonly' }}>
     </span>
 
     <input
@@ -15,9 +17,7 @@
             class="form-control"
             value="{{ field_type.value }}"
             name="{{ field_type.input_name }}"
-            data-format="{{ field_type.config.format }}"
-            data-colors="{{ field_type.colors ? field_type.colors|json_encode }}"
-            placeholder="{{ trans(field_type.placeholder) ?: '#ffffff' }}"
+            placeholder="{{ trans(field_type.placeholder) ?: '#000000' }}"
             {{ html_attributes(field_type.attributes) }}
             {{ field_type.disabled ? 'disabled' }}
             {{ field_type.readonly ? 'readonly' }}>

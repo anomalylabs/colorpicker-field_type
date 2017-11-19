@@ -1,6 +1,7 @@
 <?php namespace Anomaly\ColorpickerFieldType;
 
 use Anomaly\ColorpickerFieldType\Command\BuildColors;
+use Anomaly\ColorpickerFieldType\Handler\DefaultHandler;
 use Anomaly\Streams\Platform\Addon\FieldType\FieldType;
 
 /**
@@ -27,7 +28,7 @@ class ColorpickerFieldType extends FieldType
      */
     protected $config = [
         'format'  => 'hex',
-        'handler' => 'Anomaly\ColorpickerFieldType\Handler\DefaultHandler@handle',
+        'handler' => DefaultHandler::class,
     ];
 
     /**

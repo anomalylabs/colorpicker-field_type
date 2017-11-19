@@ -6,7 +6,13 @@
 
     fields.forEach(function (field) {
 
-        document.querySelector('#' + field.name + '__color').addEventListener('change', function (event) {
+        let picker = document.querySelector('#' + field.name + '__picker');
+
+        field.addEventListener('keyup', function (event) {
+            picker.value = event.target.value;
+        });
+
+        picker.addEventListener('change', function (event) {
             field.value = event.target.value;
         });
     });

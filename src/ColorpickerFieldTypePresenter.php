@@ -71,18 +71,6 @@ class ColorpickerFieldTypePresenter extends FieldTypePresenter
     }
 
     /**
-     * Return the color as an RGB value.
-     *
-     * @return string
-     */
-    public function rgba()
-    {
-        $levels = $this->levels();
-
-        return 'rgb(' . $levels['red'] . ', ' . $levels['green'] . ', ' . $levels['blue'] . ', ' . $levels['opacity'] . ')';
-    }
-
-    /**
      * Return the channel levels of the color.
      *
      * @return array
@@ -91,32 +79,19 @@ class ColorpickerFieldTypePresenter extends FieldTypePresenter
     {
         $value = $this->object->getValue();
 
-        if ($this->object->config('format') != 'hex') {
+        $hex = str_replace("#", "", $value);
 
-            $value = explode(',', trim(str_replace($this->object->config('format'), null, $value), '()'));
-
-            return [
-                'red'   => $value[0],
-                'green' => $value[1],
-                'blue'  => $value[2],
-                'opacity' > array_get($value, 3, 1),
-            ];
+        if (strlen($hex) == 3) {
+            $red   = hexdec($hex[0] . $hex[0]);
+            $green = hexdec($hex[1] . $hex[1]);
+            $blue  = hexdec($hex[2] . $hex[2]);
         } else {
-
-            $hex = str_replace("#", "", $value);
-
-            if (strlen($hex) == 3) {
-                $red   = hexdec($hex[0] . $hex[0]);
-                $green = hexdec($hex[1] . $hex[1]);
-                $blue  = hexdec($hex[2] . $hex[2]);
-            } else {
-                $red   = hexdec($hex[0] . $hex[1]);
-                $green = hexdec($hex[2] . $hex[3]);
-                $blue  = hexdec($hex[4] . $hex[5]);
-            }
-
-            return compact('red', 'green', 'blue');
+            $red   = hexdec($hex[0] . $hex[1]);
+            $green = hexdec($hex[2] . $hex[3]);
+            $blue  = hexdec($hex[4] . $hex[5]);
         }
+
+        return compact('red', 'green', 'blue');
     }
 
     /**
@@ -147,15 +122,5 @@ class ColorpickerFieldTypePresenter extends FieldTypePresenter
     public function blue()
     {
         return $this->levels()['blue'];
-    }
-
-    /**
-     * Return the red level in the color.
-     *
-     * @return string
-     */
-    public function opacity()
-    {
-        return array_get($this->levels(), 'opacity', 1);
     }
 }
