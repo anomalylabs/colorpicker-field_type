@@ -3,14 +3,12 @@
 
 <div class="input-group component">
 
-    <span class="input-group-addon swatch">
-        <input
-                type="color"
-                value="{{ field_type.value }}"
-                id="{{ field_type.input_name }}__picker"
-                {{ field_type.disabled ? 'disabled' }}
-                {{ field_type.readonly ? 'readonly' }}>
-    </span>
+    <input
+            type="color"
+            value="{{ field_type.value }}"
+            id="{{ field_type.input_name }}__picker"
+            {{ field_type.disabled ? 'disabled' }}
+            {{ field_type.readonly ? 'readonly' }}>
 
     <input
             type="text"

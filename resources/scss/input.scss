@@ -1,23 +1,31 @@
 .colorpicker-field_type {
 
-    .swatch {
-        padding: 0;
+    input[type="color"] {
+        -webkit-border-radius: $input-border-radius;
+        -moz-border-radius: $input-border-radius;
+        border-radius: $input-border-radius;
+
+        -webkit-appearance: none;
+        margin-right: .4rem;
         overflow: hidden;
+        cursor: pointer;
+        height: 2.4rem;
+        width: 2.4rem;
+        border: none;
+        padding: 0;
+    }
 
-        input[type="color"] {
-            -webkit-appearance: none;
-            border: none;
-            //width: 32px;
-            height: 100%;
-            padding: 0;
-        }
+    input[type="color"]::-webkit-color-swatch-wrapper {
+        padding: 0;
+    }
 
-        input[type="color"]::-webkit-color-swatch-wrapper {
-            padding: 0;
-        }
+    input[type="color"]::-webkit-color-swatch {
+        border: none;
+    }
 
-        input[type="color"]::-webkit-color-swatch {
-            border: none;
-        }
+    input[type="text"] {
+        -webkit-border-radius: $input-border-radius !important;
+        -moz-border-radius: $input-border-radius !important;
+        border-radius: $input-border-radius !important;
     }
 }
