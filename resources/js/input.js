@@ -1,18 +1,13 @@
-$(document).on('ajaxComplete ready', function () {
+(function (window, document) {
 
-    // Initialize colorpickers
-    $('input[data-provides="anomaly.field_type.colorpicker"]:not([data-initialized])').each(function () {
+    let fields = Array.from(
+        document.querySelectorAll('input[data-provides="anomaly.field_type.colorpicker"]')
+    );
 
-        var input = $(this);
+    fields.forEach(function (field) {
 
-        input
-            .attr('data-initialized', '')
-            .closest('.component')
-            .colorpicker({
-                align: 'left',
-                format: input.data('format'),
-                colorSelectors: input.data('colors')
-
-            });
+        document.querySelector('#' + field.name + '__color').addEventListener('change', function (event) {
+            field.value = event.target.value;
+        });
     });
-});
+})(window, document);
