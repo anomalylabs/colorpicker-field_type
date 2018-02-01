@@ -1,10 +1,9 @@
-$input-border-radius: .1rem !default;
 .colorpicker-field_type {
 
     input[type="color"] {
-        -webkit-border-radius: $input-border-radius;
-        -moz-border-radius: $input-border-radius;
-        border-radius: $input-border-radius;
+        -webkit-border-radius: .1rem;
+        -moz-border-radius: .1rem;
+        border-radius: .1rem;
 
         -webkit-appearance: none;
         margin-right: .4rem;
@@ -25,8 +24,8 @@ $input-border-radius: .1rem !default;
     }
 
     input[type="text"] {
-        -webkit-border-radius: $input-border-radius !important;
-        -moz-border-radius: $input-border-radius !important;
-        border-radius: $input-border-radius !important;
+        -webkit-border-radius: .1rem !important;
+        -moz-border-radius: .1rem !important;
+        border-radius: .1rem !important;
     }
 }
