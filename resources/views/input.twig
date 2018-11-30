@@ -7,7 +7,7 @@
 
     <span class="swatch"
           id="{{ field_type.input_name }}__swatch">
-        <span class="swatch__color" style="background-color: {{ field_type.value }}"></span>
+        <span class="swatch__color" style="background-color: {{ field_type.value ? field_type.output }}"></span>
     </span>
 
     <input
