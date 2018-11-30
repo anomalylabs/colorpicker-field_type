@@ -15,8 +15,8 @@
             value="{{ field_type.value }}"
             id="{{ field_type.input_name }}"
             name="{{ field_type.input_name }}"
-            data-value="{{ field_type.output }}"
             data-format="{{ field_type.config.format }}"
+            data-value="{{ field_type.value ? field_type.output }}"
             placeholder="{{ trans(field_type.placeholder) ?: '#000000' }}"
             {{ html_attributes(field_type.attributes) }}
             {{ field_type.disabled ? 'disabled' }}
