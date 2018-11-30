@@ -3,17 +3,20 @@
 {{ asset_add("scripts.js", "anomaly.field_type.colorpicker::js/picker.min.js") }}
 {{ asset_add("scripts.js", "anomaly.field_type.colorpicker::js/input.js") }}
 
-<div class="input-group component">
+<div class="input-group">
 
     <span class="swatch"
-          id="{{ field_type.input_name }}__swatch"
-          style="background: {{ field_type.value }}, {{ img('anomaly.field_type.colorpicker::img/transparent-bg.png').path }}"></span>
+          id="{{ field_type.input_name }}__swatch">
+        <span class="swatch__color" style="background-color: {{ field_type.value }}"></span>
+    </span>
 
     <input
             type="text"
             value="{{ field_type.value }}"
             id="{{ field_type.input_name }}"
             name="{{ field_type.input_name }}"
+            data-value="{{ field_type.output }}"
+            data-format="{{ field_type.config.format }}"
             placeholder="{{ trans(field_type.placeholder) ?: '#000000' }}"
             {{ html_attributes(field_type.attributes) }}
             {{ field_type.disabled ? 'disabled' }}

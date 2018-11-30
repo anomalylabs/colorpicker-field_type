@@ -5,14 +5,26 @@
         -moz-border-radius: .1rem;
         border-radius: .1rem;
 
-        border: 1px solid rgba(0, 0, 0, 0.15);
+        background-image: url("{{ img('anomaly.field_type.colorpicker::img/transparent-bg.png').base64 }}");
+        background-repeat: repeat;
         -webkit-appearance: none;
         margin-right: .4rem;
+        position: relative;
         overflow: hidden;
         cursor: pointer;
         height: 2.4rem;
         width: 2.4rem;
         padding: 0;
+    }
 
+    .swatch__color {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 0;
+        content: '';
+        position: absolute;
+        border: 1px solid rgba(0, 0, 0, 0.15);
     }
 }

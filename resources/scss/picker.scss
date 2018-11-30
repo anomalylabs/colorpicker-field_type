@@ -68,10 +68,12 @@
     background: #ffffff;
     border-radius: 3px;
 }
+
 .colorpicker:not(.field-group).is-opened {
     display: inline-block;
     z-index: 9;
 }
+
 .colorpicker:after {
     content: "";
     position: absolute;
@@ -83,15 +85,44 @@
     -webkit-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
 }
+
+.colorpicker--disable-opacity {
+
+    .colorpicker-default__hue-container,
+    .colorpicker-default__hue-container canvas {
+        width: 48px !important;
+    }
+
+    .colorpicker-default__opacity-container {
+        display: none;
+    }
+
+    .colorpicker-default__hue-cursor {
+        left: 0 !important;
+        width: 100% !important;
+        border-radius: 7px;
+    }
+
+    .colorpicker-default__a-input-container {
+
+        input {
+            pointer-events: none;
+            background-color: #eceeef;
+        }
+    }
+}
+
 .colorpicker-input + .colorpicker--inline,
 .colorpicker-anchor + .colorpicker--inline {
     margin-top: 10px;
 }
+
 .colorpicker-circle-anchor {
     box-sizing: border-box;
     display: inline-block;
     line-height: 0;
 }
+
 .colorpicker-circle-anchor__color {
     line-height: 0;
     display: inline-block;
@@ -103,9 +134,11 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
     cursor: pointer;
 }
+
 .colorpicker-anchor--inline {
     display: block;
 }
+
 .colorpicker--position-top::after, .colorpicker--position-top::before, .colorpicker--position-top-center::after, .colorpicker--position-top-center::before {
     margin-left: -3px;
     bottom: -6px;
@@ -114,6 +147,7 @@
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
 }
+
 .colorpicker--position-bottom::after, .colorpicker--position-bottom-center::after {
     margin-left: -3px;
     top: -6px;
@@ -123,14 +157,17 @@
     -webkit-transform: rotate(135deg);
     transform: rotate(135deg);
 }
+
 .colorpicker--position-top.is-arrow-left::after, .colorpicker--position-bottom.is-arrow-left::after {
     left: 18px;
     right: auto;
 }
+
 .colorpicker--position-top.is-arrow-right::after, .colorpicker--position-bottom.is-arrow-right::after {
     left: auto;
     right: 18px;
 }
+
 .colorpicker--position-left::after, .colorpicker--position-left-center::after {
     margin-top: -3px;
     left: auto;
@@ -141,6 +178,7 @@
     -webkit-transform: rotate(225deg);
     transform: rotate(225deg);
 }
+
 .colorpicker--position-right::after, .colorpicker--position-right-center::after {
     margin-top: -3px;
     left: -6px;
@@ -151,49 +189,61 @@
     -webkit-transform: rotate(-315deg);
     transform: rotate(-315deg);
 }
+
 .colorpicker--position-left.is-arrow-top::after, .colorpicker--position-right.is-arrow-top::after {
     top: 18px;
     bottom: auto;
 }
+
 .colorpicker--position-left.is-arrow-bottom::after, .colorpicker--position-right.is-arrow-bottom::after {
     top: auto;
     bottom: 18px;
 }
+
 .colorpicker--inline {
     position: static;
     box-shadow: none;
     display: inline-block;
 }
+
 .colorpicker--inline:after {
     display: none;
 }
+
 .colorpicker--no-arrow:after {
     opacity: 0;
 }
+
 .colorpicker-input {
     position: relative;
     display: block;
 }
+
 .colorpicker-input--position-right .colorpicker-custom-anchor {
     right: 10px;
 }
+
 .colorpicker-input--position-right input,
 .colorpicker-input--position-right .form-control {
     padding-right: 42px;
 }
+
 .colorpicker-input--position-left .colorpicker-custom-anchor {
     left: 10px;
 }
+
 .colorpicker-input--position-left input,
 .colorpicker-input--position-left .form-control {
     padding-left: 42px;
 }
+
 .colorpicker-input .colorpicker-custom-anchor {
     position: absolute;
     top: 50%;
     margin-top: -13px;
     display: block;
 }
+
 .colorpicker-input .colorpicker-circle-anchor__color {
     width: 26px;
     height: 26px;
@@ -210,9 +260,11 @@ textarea + .colorpicker--inline {
     width: 308px;
     padding: 9px 9px 7px 9px;
 }
+
 .colorpicker-default__body {
     display: flex;
 }
+
 .colorpicker-default__spectrum-container {
     width: 230px;
     height: 230px;
@@ -220,6 +272,7 @@ textarea + .colorpicker--inline {
     box-sizing: border-box;
     border-radius: 3px;
 }
+
 .colorpicker-default__spectrum-canvas {
     width: 230px;
     height: 230px;
@@ -228,6 +281,7 @@ textarea + .colorpicker--inline {
     margin: 0;
     box-sizing: border-box;
 }
+
 .colorpicker-default__spectrum-cursor, .colorpicker-default__hue-cursor, .colorpicker-default__opacity-cursor {
     border: 2px solid #ffffff;
     width: 13px;
@@ -241,10 +295,12 @@ textarea + .colorpicker--inline {
     cursor: default;
     box-sizing: border-box;
 }
+
 .colorpicker-default__hue-cursor, .colorpicker-default__opacity-cursor {
     left: calc(50% - 7px);
     top: 50%;
 }
+
 .colorpicker-default__hue-container, .colorpicker-default__opacity-container {
     width: 19px;
     height: 230px;
@@ -253,27 +309,33 @@ textarea + .colorpicker--inline {
     position: relative;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
 }
+
 .colorpicker-default__opacity-container {
     background: #ffffff url("{{ img('anomaly.field_type.colorpicker::img/transparent-bg.png').base64 }}");
 }
+
 .colorpicker-default__hue-canvas, .colorpicker-default__opacity-canvas {
     width: 19px;
     height: 230px;
     border-radius: 3px;
 }
+
 .colorpicker-default__info {
     display: flex;
     padding: 14px 0 0 0;
 }
+
 .colorpicker-default__info--hidden {
     display: none;
 }
+
 .colorpicker-default__hex-input-container, .colorpicker-default__r-input-container, .colorpicker-default__g-input-container, .colorpicker-default__b-input-container, .colorpicker-default__a-input-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-right: 9px;
 }
+
 .colorpicker-default__hex-input, .colorpicker-default__r-input, .colorpicker-default__g-input, .colorpicker-default__b-input, .colorpicker-default__a-input {
     box-sizing: border-box;
     width: 44px;
@@ -286,32 +348,40 @@ textarea + .colorpicker--inline {
     transition: border 0.2s ease-in-out;
     background: #ffffff;
 }
+
 .colorpicker-default__hex-input::-webkit-input-placeholder, .colorpicker-default__r-input::-webkit-input-placeholder, .colorpicker-default__g-input::-webkit-input-placeholder, .colorpicker-default__b-input::-webkit-input-placeholder, .colorpicker-default__a-input::-webkit-input-placeholder {
     color: #939daa;
 }
+
 .colorpicker-default__hex-input:-ms-input-placeholder, .colorpicker-default__r-input:-ms-input-placeholder, .colorpicker-default__g-input:-ms-input-placeholder, .colorpicker-default__b-input:-ms-input-placeholder, .colorpicker-default__a-input:-ms-input-placeholder {
     color: #939daa;
 }
+
 .colorpicker-default__hex-input::-ms-input-placeholder, .colorpicker-default__r-input::-ms-input-placeholder, .colorpicker-default__g-input::-ms-input-placeholder, .colorpicker-default__b-input::-ms-input-placeholder, .colorpicker-default__a-input::-ms-input-placeholder {
     color: #939daa;
 }
+
 .colorpicker-default__hex-input::placeholder, .colorpicker-default__r-input::placeholder, .colorpicker-default__g-input::placeholder, .colorpicker-default__b-input::placeholder, .colorpicker-default__a-input::placeholder {
     color: #939daa;
 }
+
 .colorpicker-default__hex-input:focus, .colorpicker-default__r-input:focus, .colorpicker-default__g-input:focus, .colorpicker-default__b-input:focus, .colorpicker-default__a-input:focus {
     border-color: #0094f2;
     box-shadow: none;
     outline: none;
 }
+
 .colorpicker-default__hex-input {
     width: 76px;
 }
+
 .colorpicker-default__hex-text, .colorpicker-default__r-text, .colorpicker-default__g-text, .colorpicker-default__b-text, .colorpicker-default__a-text {
     text-transform: uppercase;
     font-size: 14px;
     color: #939daa;
     margin-top: 8px;
 }
+
 .colorpicker-default__history {
     border-top: 1px solid #e9ebee;
     padding: 15px;
@@ -322,9 +392,11 @@ textarea + .colorpicker--inline {
     padding-right: 5px;
     padding-bottom: 5px;
 }
+
 .colorpicker-default__history.is-hidden {
     display: none;
 }
+
 .colorpicker-default__history-item {
     cursor: pointer;
     width: 16px;
@@ -335,9 +407,11 @@ textarea + .colorpicker--inline {
     margin-right: 10px;
     margin-bottom: 10px;
 }
+
 .colorpicker-default__history-item.is-empty {
     border-color: transparent;
 }
+
 .colorpicker-default__history-item.is-add-new {
     text-align: center;
     cursor: pointer;
@@ -347,6 +421,7 @@ textarea + .colorpicker--inline {
     height: 16px;
     border: none;
 }
+
 .colorpicker-default__history-item.is-add-new:hover {
     background-color: #d5dde6;
 }

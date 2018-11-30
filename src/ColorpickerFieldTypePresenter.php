@@ -20,6 +20,18 @@ class ColorpickerFieldTypePresenter extends FieldTypePresenter
     protected $object;
 
     /**
+     * Return the configured output.
+     *
+     * @return string
+     */
+    public function output()
+    {
+        $format = $this->object->config('format', 'hex');
+
+        return $this->{$format}();
+    }
+
+    /**
      * Return the hex code only.
      *
      * @return string
@@ -71,6 +83,18 @@ class ColorpickerFieldTypePresenter extends FieldTypePresenter
     }
 
     /**
+     * Return the color as an RGBA value.
+     *
+     * @return string
+     */
+    public function rgba()
+    {
+        $levels = $this->levels();
+
+        return 'rgba(' . $levels['red'] . ', ' . $levels['green'] . ', ' . $levels['blue'] . ', ' . $levels['alpha'] . ')';
+    }
+
+    /**
      * Return the channel levels of the color.
      *
      * @return array
@@ -79,7 +103,66 @@ class ColorpickerFieldTypePresenter extends FieldTypePresenter
     {
         $value = $this->object->getValue();
 
-        $hex = str_replace("#", "", $value);
+        if (starts_with($value, '#')) {
+            return $this->levelsFromHex($value);
+        }
+
+        if (starts_with($value, 'rgb(')) {
+            return $this->levelsFromRgb($value);
+        }
+
+        if (starts_with($value, 'rgba(')) {
+            return $this->levelsFromRgba($value);
+        }
+
+        return $this->levelsFromHex($value);
+    }
+
+    /**
+     * Return levels from RGB value.
+     *
+     * @param $rgb
+     * @return array
+     */
+    protected function levelsFromRgb($rgb)
+    {
+        $levels = explode(',', str_replace([' ', 'rgba(', ')'], '', $rgb));
+
+        $red   = $levels[0];
+        $green = $levels[1];
+        $blue  = $levels[2];
+        $alpha = 1;
+
+        return compact('red', 'green', 'blue', 'alpha');
+    }
+
+    /**
+     * Return levels from an RGBA value.
+     *
+     * @param $rgba
+     * @return array
+     */
+    protected function levelsFromRgba($rgba)
+    {
+        $levels = explode(',', str_replace([' ', 'rgba(', ')'], '', $rgba));
+
+        $red   = $levels[0];
+        $green = $levels[1];
+        $blue  = $levels[2];
+        $alpha = $levels[3];
+
+        return compact('red', 'green', 'blue', 'alpha');
+    }
+
+    /**
+     * Return levels from HEX value.
+     *
+     * @param $hex
+     * @return array
+     */
+    protected function levelsFromHex($hex)
+    {
+        $hex = str_replace("#", "", $hex);
 
         if (strlen($hex) == 3) {
             $red   = hexdec($hex[0] . $hex[0]);
@@ -91,7 +174,9 @@ class ColorpickerFieldTypePresenter extends FieldTypePresenter
             $blue  = hexdec($hex[4] . $hex[5]);
         }
 
-        return compact('red', 'green', 'blue');
+        $alpha = 1;
+
+        return compact('red', 'green', 'blue', 'alpha');
     }
 
     /**
@@ -122,5 +207,15 @@ class ColorpickerFieldTypePresenter extends FieldTypePresenter
     public function blue()
     {
         return $this->levels()['blue'];
+    }
+
+    /**
+     * Return the alpha value in the color.
+     *
+     * @return string
+     */
+    public function alpha()
+    {
+        return $this->levels()['alpha'];
     }
 }
