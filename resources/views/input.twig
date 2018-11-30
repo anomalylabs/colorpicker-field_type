@@ -1,19 +1,18 @@
+{{ asset_add("styles.css", "anomaly.field_type.colorpicker::scss/picker.scss") }}
 {{ asset_add("styles.css", "anomaly.field_type.colorpicker::scss/input.scss") }}
+{{ asset_add("scripts.js", "anomaly.field_type.colorpicker::js/picker.min.js") }}
 {{ asset_add("scripts.js", "anomaly.field_type.colorpicker::js/input.js") }}
 
 <div class="input-group component">
 
-    <input
-            type="color"
-            value="{{ field_type.value ?: field_type.placeholder }}"
-            id="{{ field_type.input_name }}__picker"
-            {{ field_type.disabled ? 'disabled' }}
-            {{ field_type.readonly ? 'readonly' }}>
+    <span class="swatch"
+          id="{{ field_type.input_name }}__swatch"
+          style="background: {{ field_type.value }}, {{ img('anomaly.field_type.colorpicker::img/transparent-bg.png').path }}"></span>
 
     <input
             type="text"
-            class="form-control"
             value="{{ field_type.value }}"
+            id="{{ field_type.input_name }}"
             name="{{ field_type.input_name }}"
             placeholder="{{ trans(field_type.placeholder) ?: '#000000' }}"
             {{ html_attributes(field_type.attributes) }}

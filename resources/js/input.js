@@ -6,14 +6,19 @@
 
     fields.forEach(function (field) {
 
-        let picker = document.querySelector('#' + field.name + '__picker');
+        let swatch = document.getElementById(field.name + '__swatch');
 
-        field.addEventListener('keyup', function (event) {
-            picker.value = event.target.value;
+        let picker = new ColorPicker.Default(field, {
+            history: {
+                hidden: true,
+            },
         });
 
-        picker.addEventListener('change', function (event) {
-            field.value = event.target.value;
+        swatch.addEventListener('click', function (e) {
+
+            e.preventDefault();
+
+            field.focus();
         });
     });
 })(window, document);
