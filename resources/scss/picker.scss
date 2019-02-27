@@ -311,7 +311,7 @@ textarea + .colorpicker--inline {
 }
 
 .colorpicker-default__opacity-container {
-    background: #ffffff url("{{ img('anomaly.field_type.colorpicker::img/transparent-bg.png').base64 }}");
+    background: #ffffff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAAsSURBVHjaYvz///9/BiRw6dIlZC4DEwMBQLkCFnQ79fT06O0GAAAAAP//AwD3ZwmEXiApwAAAAABJRU5ErkJggg==);
 }
 
 .colorpicker-default__hue-canvas, .colorpicker-default__opacity-canvas {
