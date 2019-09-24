@@ -71,30 +71,6 @@ class ColorpickerFieldTypePresenter extends FieldTypePresenter
     }
 
     /**
-     * Return the color as an RGB value.
-     *
-     * @return string
-     */
-    public function rgb()
-    {
-        $levels = $this->levels();
-
-        return 'rgb(' . $levels['red'] . ', ' . $levels['green'] . ', ' . $levels['blue'] . ')';
-    }
-
-    /**
-     * Return the color as an RGBA value.
-     *
-     * @return string
-     */
-    public function rgba()
-    {
-        $levels = $this->levels();
-
-        return 'rgba(' . $levels['red'] . ', ' . $levels['green'] . ', ' . $levels['blue'] . ', ' . $levels['alpha'] . ')';
-    }
-
-    /**
      * Return the channel levels of the color.
      *
      * @return array
@@ -118,46 +94,6 @@ class ColorpickerFieldTypePresenter extends FieldTypePresenter
         }
 
         return $this->levelsFromHex($value);
-    }
-
-    /**
-     * Return the red level in the color.
-     *
-     * @return string
-     */
-    public function red()
-    {
-        return $this->levels()['red'];
-    }
-
-    /**
-     * Return the red level in the color.
-     *
-     * @return string
-     */
-    public function green()
-    {
-        return $this->levels()['green'];
-    }
-
-    /**
-     * Return the red level in the color.
-     *
-     * @return string
-     */
-    public function blue()
-    {
-        return $this->levels()['blue'];
-    }
-
-    /**
-     * Return the alpha value in the color.
-     *
-     * @return string
-     */
-    public function alpha()
-    {
-        return $this->levels()['alpha'];
     }
 
     /**
@@ -219,5 +155,69 @@ class ColorpickerFieldTypePresenter extends FieldTypePresenter
         $alpha = $levels[3];
 
         return compact('red', 'green', 'blue', 'alpha');
+    }
+
+    /**
+     * Return the color as an RGB value.
+     *
+     * @return string
+     */
+    public function rgb()
+    {
+        $levels = $this->levels();
+
+        return 'rgb(' . $levels['red'] . ', ' . $levels['green'] . ', ' . $levels['blue'] . ')';
+    }
+
+    /**
+     * Return the color as an RGBA value.
+     *
+     * @return string
+     */
+    public function rgba()
+    {
+        $levels = $this->levels();
+
+        return 'rgba(' . $levels['red'] . ', ' . $levels['green'] . ', ' . $levels['blue'] . ', ' . $levels['alpha'] . ')';
+    }
+
+    /**
+     * Return the red level in the color.
+     *
+     * @return string
+     */
+    public function red()
+    {
+        return $this->levels()['red'];
+    }
+
+    /**
+     * Return the red level in the color.
+     *
+     * @return string
+     */
+    public function green()
+    {
+        return $this->levels()['green'];
+    }
+
+    /**
+     * Return the red level in the color.
+     *
+     * @return string
+     */
+    public function blue()
+    {
+        return $this->levels()['blue'];
+    }
+
+    /**
+     * Return the alpha value in the color.
+     *
+     * @return string
+     */
+    public function alpha()
+    {
+        return $this->levels()['alpha'];
     }
 }

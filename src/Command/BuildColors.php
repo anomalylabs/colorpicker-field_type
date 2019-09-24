@@ -3,7 +3,6 @@
 use Anomaly\ColorpickerFieldType\ColorpickerFieldType;
 use Illuminate\Container\Container;
 
-
 /**
  * Class BuildColors
  *
@@ -26,7 +25,7 @@ class BuildColors
      *
      * @param ColorpickerFieldType $fieldType
      */
-    function __construct(ColorpickerFieldType $fieldType)
+    public function __construct(ColorpickerFieldType $fieldType)
     {
         $this->fieldType = $fieldType;
     }

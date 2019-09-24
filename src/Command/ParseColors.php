@@ -1,7 +1,5 @@
 <?php namespace Anomaly\ColorpickerFieldType\Command;
 
-
-
 /**
  * Class ParseColors
  *
