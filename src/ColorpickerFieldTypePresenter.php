@@ -193,7 +193,7 @@ class ColorpickerFieldTypePresenter extends FieldTypePresenter
      */
     protected function levelsFromRgb($rgb)
     {
-        $levels = explode(',', str_replace([' ', 'rgba(', ')'], '', $rgb));
+        $levels = explode(',', str_replace([' ', 'rgb(', ')'], '', $rgb));
 
         $red   = $levels[0];
         $green = $levels[1];
