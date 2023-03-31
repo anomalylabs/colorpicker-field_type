@@ -46,7 +46,7 @@ class ColorpickerFieldType extends FieldType
     public function getColors()
     {
         if ($this->colors === null) {
-            $this->dispatch(new BuildColors($this));
+            $this->dispatchSync(new BuildColors($this));
         }
 
         return $this->colors;

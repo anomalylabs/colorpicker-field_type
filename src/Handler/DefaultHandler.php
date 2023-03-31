@@ -27,7 +27,7 @@ class DefaultHandler
         $colors = $fieldType->config('colors', []);
 
         if (is_string($colors)) {
-            $colors = $this->dispatch(new ParseColors($colors));
+            $colors = $this->dispatchSync(new ParseColors($colors));
         }
 
         if (is_array($colors) && count(array_filter(array_keys($colors), 'is_string')) == 0) {
