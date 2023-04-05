@@ -2,7 +2,6 @@
 
 use Anomaly\ColorpickerFieldType\ColorpickerFieldType;
 use Anomaly\ColorpickerFieldType\Command\ParseColors;
-use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Support\Collection;
 
 /**
@@ -14,9 +13,6 @@ use Illuminate\Support\Collection;
  */
 class DefaultHandler
 {
-
-    use DispatchesJobs;
-
     /**
      * Handle the predefined colors.
      *
@@ -27,7 +23,7 @@ class DefaultHandler
         $colors = $fieldType->config('colors', []);
 
         if (is_string($colors)) {
-            $colors = $this->dispatchSync(new ParseColors($colors));
+            $colors = dispatch_sync(new ParseColors($colors));
         }
 
         if (is_array($colors) && count(array_filter(array_keys($colors), 'is_string')) == 0) {
